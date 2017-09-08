@@ -14,7 +14,12 @@ namespace WalkDogWebAPI.Controllers
 {
     public class UsuariosController : ApiController
     {
-        private WalkDogDBModel db = new WalkDogDBModel();
+        private WalkDogDBModel db;
+        
+        UsuariosController()
+        {
+            db = new WalkDogDBModel();            
+        }
 
         // GET: api/Usuarios
         public IQueryable<Usuario> GetUsuario()
@@ -25,7 +30,7 @@ namespace WalkDogWebAPI.Controllers
         // GET: api/Usuarios/5
         [ResponseType(typeof(Usuario))]
         public IHttpActionResult GetUsuario(int id)
-        {
+        {            
             Usuario usuario = db.Usuario.Find(id);
             if (usuario == null)
             {

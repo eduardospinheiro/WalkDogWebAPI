@@ -10,6 +10,7 @@ namespace WalkDogWebAPI.Models.Entity
         public WalkDogDBModel()
             : base("name=WalkDogDBModel")
         {
+            base.Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<Avaliacao> Avaliacao { get; set; }
@@ -83,13 +84,7 @@ namespace WalkDogWebAPI.Models.Entity
                 .HasMany(e => e.Passeio)
                 .WithRequired(e => e.Usuario)
                 .HasForeignKey(e => e.idUsuarioPasseador)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Usuario>()
-                .HasMany(e => e.Passeio1)
-                .WithRequired(e => e.Usuario1)
-                .HasForeignKey(e => e.idCachorroEmprestado)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(false);            
         }
     }
 }

@@ -38,8 +38,8 @@ namespace WalkDogWebAPI.Models.Entity
         public string cidade { get; set; }
 
         [Required]
-        [MaxLength(30)]
-        public byte[] estado { get; set; }
+        [MaxLength(2)]
+        public string estado { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuario { get; set; }

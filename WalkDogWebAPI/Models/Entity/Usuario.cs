@@ -13,8 +13,7 @@ namespace WalkDogWebAPI.Models.Entity
         public Usuario()
         {
             Cachorro = new HashSet<Cachorro>();
-            Passeio = new HashSet<Passeio>();
-            Passeio1 = new HashSet<Passeio>();
+            Passeio = new HashSet<Passeio>();            
         }
 
         public int id { get; set; }
@@ -31,6 +30,7 @@ namespace WalkDogWebAPI.Models.Entity
         [StringLength(70)]
         public string nomeUsuario { get; set; }
 
+        [Required]
         public int idEndereco { get; set; }
 
         [Required]
@@ -48,8 +48,6 @@ namespace WalkDogWebAPI.Models.Entity
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Passeio> Passeio { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Passeio> Passeio1 { get; set; }
+        
     }
 }
